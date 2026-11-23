@@ -19,7 +19,7 @@ After install, talk only to Firstmate - the one agent you chat with in the facto
 
 ## Quick Start
 
-Connect the target repository in Conductor Cloud and configure its coding agent. The project crewmate will need a Conductor API key supplied through its secure credential card.
+You can install Firstmate, the four skills and the SQLite backlog before connecting a repository. At project sign-on, connect the repository in Conductor Cloud and supply the project crewmate’s Conductor and forge credentials through its secure credential card.
 
 Give a bot on the shared computer this instruction:
 

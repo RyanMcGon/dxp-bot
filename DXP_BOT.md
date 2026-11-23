@@ -42,23 +42,16 @@ Same directory as this file:
 
    Copy this whole pack to `/home/box/agent-data/dxp-bot/pack/` on the shared computer (clone or download it first if you only have this file's text). Every later reference to a pack file means that path. If a copy is already there, refresh it.
 
-2. Look at the existing roster (agent profile folders). If a Firstmate already exists, reuse it. Do not create a second.
+2. Call `list_fleet` in the current Space. Use the active roster to find Firstmate. An archived bot or an old profile folder is historical data. Leave it archived. If there is one active Firstmate, reuse its bot ID. If there are several active matches, resolve the intended ID before messaging one. If the roster is truncated, verify the match before creating another bot.
 
-3. Read `DXP_BOT_FIRSTMATE.md`. CreateAgent name `Firstmate` with that description. If you are already Firstmate, keep your name and update your description instead of cloning yourself.
+3. Read `DXP_BOT_FIRSTMATE.md`. When there is no active Firstmate, call `spawn_bot` with name `Firstmate`, a short description, the charter as `instructions`, and `computer_mode` set to `team`. Use the returned bot ID for the handoff. If creation is awaiting approval or its result is uncertain, check the active roster before retrying. For an existing active Firstmate, preserve its project settings and learning notes when updating its charter. If you are Firstmate, perform the readiness check yourself.
 
-4. Write four global workflows from the skill files. Names:
-   - Lavish session
-   - Adversarial review
-   - Project management
-   - Ahoy
-   Use each skill's description line as the workflow description. Do not install extra plugins without a yes from the user.
+4. Install or refresh the four Space skills using `skill_create` or `skill_update`. Use the names **Lavish session**, **Adversarial review**, **Project management**, and **Ahoy**, with the description and Markdown body from their respective skill files. Read each skill back with `skill_read`. On a resumed install, reuse an identical skill.
 
-5. Run the project-management setup: create the sqlite DB if it does not exist. Path is in that skill. Same path every time.
+5. Run the project-management setup on the shared team computer. Open the existing database at the documented path, or initialize it using the skill's schema. Verify that both `projects` and `tasks` can be queried. Use Python's standard `sqlite3` module if the SQLite shell is missing. Preserve existing rows.
 
-6. Check for lavish-axi on the shared computer. Minimum version 0.1.53. If missing, run `npx -y lavish-axi@latest` or ask the user to install it. Session URLs are served from the shared computer and the user views them from their own computer, so confirm with the user that they can reach it (tailnet or exposed address). Do not pretend the live loop works without it.
+6. Prepare the shared computer for visual sessions and project work. Check for curl, jq, and the target forge CLI (gh for GitHub). Install missing tools using the computer's supported package manager where permitted, and verify each executable. For Lavish, verify lavish-axi version 0.1.53 or newer, using the installed command or `npx -y lavish-axi@latest --version`. Confirm the captain can open the session URL when starting the first visual session. If any tool still fails, record the affected capability and continue independent setup steps.
 
-7. Verify the shared computer has an authenticated CLI for the project's forge (for example `gh auth status`), plus curl and jq for the Conductor API. At project sign-on, the crewmate verifies access to the matching cloud project as described in `CONDUCTOR.md`. Credentials are per bot. Request missing credentials on the crewmate's secure card.
+7. At project sign-on, verify the crewmate can access the matching Conductor project using `CONDUCTOR.md` and read the target repository through its forge CLI. For GitHub, run `gh auth status` and check repository access with `gh repo view OWNER/REPO`. If credentials are missing, request them through that crewmate's secure card and retry in its context. A GitHub login on the starter bot cannot establish another bot's access. Keep project shipping pending until its checks pass.
 
-8. Message Firstmate with a task id (for example DXP-READY). Tell it the skills are installed, the DB path, and to reply ready against that id. Empty or blocked still gets a reply. Tell Firstmate to leave a greeting message to the user.
-
-9. Tell the user: talk only to Firstmate from here. This starter bot is leftover. They can delete it from the sidebar (right-click the row, Delete). You cannot delete it yourself.
+8. Send `DXP-READY` to the active Firstmate with `message_bot` by bot ID. Ask Firstmate to verify it can read the four skills and query the two backlog tables from its own context, then greet the captain and acknowledge readiness. If you are Firstmate, run these checks directly. Report factory readiness after verification. List any pending Lavish, forge or Conductor checks separately so the captain knows which workflows can run.
