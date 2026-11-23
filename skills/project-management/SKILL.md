@@ -64,11 +64,24 @@ Firstmate writes a task row before handing factory work off. Reuse the task id i
 
 Triage wakes stay in chat or cron, not factory.db. Do not write a factory.db row for a standing wake or on-demand "triage now". Do not add kind=triage. Do not file those as scout or ship.
 
-If a project row already maps that repo to a crewmate, reuse that crewmate. Do not overwrite crewmate_id. Do not insert a second row for the same repo.
+If a project row already maps that repo to a crewmate, reuse that crewmate by default. For a captain-authorized handover, follow Crewmate replacement below. Do not insert a second row for the same repo.
 
 If the work belongs to a repo that has no project row, insert one row: sign on from `/home/box/agent-data/dxp-bot/pack/DXP_BOT_TRIAGE.md` when the captain asked for triage (factory addendum included), otherwise from the crewmate template (`/home/box/agent-data/dxp-bot/pack/DXP_BOT_CREWMATE.md`). Record crewmate_id plus repos plus source_control. Do not route factory scout/ship to a second bot.
 
 Non-software work files under the reserved `default` project row (repos `[]`, no source_control); create that row on first use.
+
+## Crewmate replacement
+
+Explicit authorization from the captain permits Firstmate to change an existing project's assignment, including when the outgoing crewmate is archived. Resolve the project row and the intended active successor by ID. When the captain names an existing successor, use that bot. Leave the outgoing bot and all task rows untouched.
+
+Read the current assignment. If it already matches the successor, the handover is complete. Otherwise update only the assignment in the existing row, binding the IDs as SQL parameters:
+
+```sql
+UPDATE projects SET crewmate_id = :successor
+WHERE id = :project AND crewmate_id = :outgoing;
+```
+
+Verify one row changed and read back the assignment in the same transaction before committing. If another process changed the mapping, read it again and reconcile before retrying. Report the verified assignment. Reassignment alone does not start or resume any tasks.
 
 ## Promotion
 
@@ -88,5 +101,4 @@ The crewmate updates `status`, `branch`, `result`, and `updated_at` as it goes. 
 - Do not assume GitHub when recording `source_control`
 - Do not add a role column
 - Do not invent a second mapping table
-- Do not overwrite crewmate_id
 - Do not insert a second projects row for the same repo
