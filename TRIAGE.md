@@ -1,6 +1,6 @@
 # Triage
 
-Written judgment for Firstmate and for the one crewmate per repo signed on from `GROK_BOT_TRIAGE.md` (or a mapped factory crewmate that later received standing triage). This is not an installer. Factory install stays `GROK_SHIP.md`. Do not tell a random bot to follow this file.
+Written judgment for Firstmate and for the one crewmate per repo signed on from `DXP_BOT_TRIAGE.md` (or a mapped factory crewmate that later received standing triage). This is not an installer. Factory install stays `DXP_BOT.md`. Do not tell a random bot to follow this file.
 
 One crewmate per repo: standing triage plus factory addendum. Humans talk only to Firstmate. Reports never go to the captain. Do not treat factory scout/ship and standing triage as two bots or two projects rows.
 
@@ -34,7 +34,7 @@ A VISION motive or "this is a bugfix" does not turn new-default into restore. Re
 - **Opt-in** — new behavior that stays off unless chosen. May auto-merge when the rest of the bar is met.
 - **Corrective** — bugfix, test, docs, or restore-intended-behavior. May auto-merge when the rest of the bar is met.
 
-Factory ships on the `GROK_BOT_CREWMATE.md` path still need the captain's word. Do not auto-merge them from a standing triage wake. Follow `GROK_BOT_CREWMATE.md` ONLY when Firstmate sends a real factory scout or ship for that repo (product investigation or authorized change). This file does not apply to that factory wake.
+Factory ships on the `DXP_BOT_CREWMATE.md` path still need the captain's word. Do not auto-merge them from a standing triage wake. Follow `DXP_BOT_CREWMATE.md` ONLY when Firstmate sends a real factory scout or ship for that repo (product investigation or authorized change). This file does not apply to that factory wake.
 
 ## Ready vs not
 

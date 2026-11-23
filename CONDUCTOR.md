@@ -1,6 +1,6 @@
 # Running a factory task in Conductor Cloud
 
-Run these requests on the shared Grok Bot computer as the project crewmate. Supply `CONDUCTOR_API_KEY` from the crewmate's secure credential card. Keep the key out of chat, SQLite, transcripts, and workspace environment overrides.
+Run these requests on the shared DXP Bot computer as the project crewmate. Supply `CONDUCTOR_API_KEY` from the crewmate's secure credential card. Keep the key out of chat, SQLite, transcripts, and workspace environment overrides.
 
 Set up the following shell function in the shell making the requests. It targets the Conductor API and fails on HTTP errors.
 

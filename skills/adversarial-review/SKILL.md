@@ -13,7 +13,7 @@ A project crewmate starts a **fresh** subagent. Do not resume an old review suba
 
 The subagent starts blank. The dispatch must include the repo, source control CLI, branch, base, and this entire prompt.
 
-The subagent cannot see a cloud agent VM. It reads the branch through the source control CLI recorded for the project (`gh`, `glab`, or the recorded forge) or git, on the shared Grok Bot computer.
+The subagent cannot see a cloud agent VM. It reads the branch through the source control CLI recorded for the project (`gh`, `glab`, or the recorded forge) or git, on the shared DXP Bot computer.
 
 ## Prompt
 

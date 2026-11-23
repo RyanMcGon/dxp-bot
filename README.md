@@ -1,38 +1,15 @@
-<h1 align="center">Grok Ship</h1>
-<p align="center">
-  <a
-    href="https://img.shields.io/badge/platform-Grok%20Bot-blue?style=flat-square"
-    ><img
-      alt="Platform"
-      src="https://img.shields.io/badge/platform-Grok%20Bot-blue?style=flat-square"
-  /></a>
-  <a href="https://x.com/kunchenguid"
-    ><img
-      alt="X"
-      src="https://img.shields.io/badge/X-@kunchenguid-black?style=flat-square"
-  /></a>
-  <a href="https://discord.gg/Wsy2NpnZDu"
-    ><img
-      alt="Discord"
-      src="https://img.shields.io/discord/1439901831038763092?style=flat-square&label=discord"
-  /></a>
-</p>
+# DXP Bot
 
-<h3 align="center">Turn your Grok Bot into a software factory.</h3>
-
-## What it is
-
-Grok Ship is an agent distro for Grok Bot.
-It helps turn your Grok Bot into a small software factory: scout vs ship work, per-project crewmates that drive Conductor cloud agents, adversarial review before any pull request, and a local sqlite backlog.
+DXP Bot runs a software factory with a local SQLite backlog. Firstmate assigns work to project crewmates, who run investigations and code changes in Conductor Cloud. Every proposed change gets an independent review before a pull request opens.
 
 Bots never execute on your machine.
-They run on the shared Grok Bot computer; project work runs on ephemeral Conductor cloud agents.
+They run on the shared DXP Bot computer; project work runs on ephemeral Conductor cloud agents.
 
 After install, talk only to Firstmate - the one agent you chat with in the factory. If you ask, Firstmate can sign on a repo triage crewmate; that is not part of the factory install.
 
 ## Features
 
-- **A software factory on Grok Bot** - you bring work; the factory files it, delegates it, and brings back reports or pull requests.
+- **A software factory on DXP Bot** - you bring work; the factory files it, delegates it, and brings back reports or pull requests.
 - **Scout vs ship** - scout is investigation, diagnosis, planning, or audit, and the deliverable is a report, never a PR. Ship is authorized change. Promoting a scout flips the same task row rather than opening a duplicate.
 - **Per-project crewmates** - each project or project area gets a persistent crewmate that drives Conductor cloud agents.
 - **Review before any PR** - after a ship cloud agent pushes a branch, a fresh adversarial review reads it through the project's forge CLI. No pull request until that pass is clean.
@@ -44,10 +21,10 @@ After install, talk only to Firstmate - the one agent you chat with in the facto
 
 Connect the target repository in Conductor Cloud and configure its coding agent. The project crewmate will need a Conductor API key supplied through its secure credential card.
 
-Tell any Grok Bot:
+Give a bot on the shared computer this instruction:
 
 ```
-follow https://github.com/RyanMcGon/grok-ship/blob/main/GROK_SHIP.md
+follow https://github.com/RyanMcGon/dxp-bot/blob/main/DXP_BOT.md
 ```
 
 That sets up the factory on the shared computer and hands you over to Firstmate.
@@ -71,7 +48,7 @@ Talk only to Firstmate from then on.
                   │  work requests, decisions, "merge it"
                   ▼
  ┌─────────────────────────────────────┐
- │ Grok Bot software factory           │
+ │ DXP Bot software factory            │
  │ sqlite backlog · scout vs ship      │
  └──┬──────────────┬───────────────┬───┘
     │                              │

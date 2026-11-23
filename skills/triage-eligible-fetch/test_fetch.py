@@ -175,7 +175,7 @@ class SkipTests(unittest.TestCase):
         self.assertNotIn("kun’s firstmate", source.lower())
         pack_root = Path(__file__).resolve().parents[2]
         pack_files = [
-            pack_root / "GROK_BOT_TRIAGE.md",
+            pack_root / "DXP_BOT_TRIAGE.md",
             pack_root / "TRIAGE.md",
             pack_root / "skills/triage-eligible-fetch/SKILL.md",
             pack_root / "skills/vision-md-triage-verdict/SKILL.md",
@@ -1451,7 +1451,7 @@ class CliTests(unittest.TestCase):
         self.assertIn("personal GitHub login", folded)
         self.assertIn("not the org or repo-owner slug", folded)
         self.assertIn("OWNER/NAME", folded)
-        firstmate = Path(__file__).resolve().parents[2] / "GROK_BOT_FIRSTMATE.md"
+        firstmate = Path(__file__).resolve().parents[2] / "DXP_BOT_FIRSTMATE.md"
         charter = firstmate.read_text()
         self.assertIn("captain's personal GitHub login for `--owner`", charter)
         self.assertIn("`--repo` stays OWNER/NAME", charter)
@@ -1462,7 +1462,7 @@ class CliTests(unittest.TestCase):
         schema = (Path(__file__).resolve().parents[2] / "skills/project-management/SKILL.md").read_text()
         self.assertIn("`tasks.kind` is `scout`, `ship`, or `decision`. Do not add `triage`.", schema)
         self.assertIn("Do not write a factory.db row for a standing wake or on-demand", schema)
-        addendum = (Path(__file__).resolve().parents[2] / "GROK_BOT_TRIAGE.md").read_text()
+        addendum = (Path(__file__).resolve().parents[2] / "DXP_BOT_TRIAGE.md").read_text()
         self.assertIn("ONLY when Firstmate sends a real factory scout or ship", addendum)
         self.assertIn("NEVER launch a cloud agent for issue fixes", addendum)
         self.assertIn("FM-", addendum)
@@ -1530,7 +1530,7 @@ class CliTests(unittest.TestCase):
         self.assertIn("wired triage crewmate may auto-merge", charter)
         self.assertIn("no cannot-tell", charter)
         self.assertIn("not new-default", charter)
-        ship = (Path(__file__).resolve().parents[2] / "GROK_SHIP.md").read_text()
+        ship = (Path(__file__).resolve().parents[2] / "DXP_BOT.md").read_text()
         self.assertIn("Factory ships never merge without the captain's word", ship)
         self.assertIn("wired triage crewmate may auto-merge", ship)
         self.assertIn("no cannot-tell", ship)

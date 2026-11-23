@@ -1,6 +1,6 @@
 ---
 name: Project management
-description: Use at Grok Ship intake and whenever work is handed to a crewmate.
+description: Use at DXP Bot intake and whenever work is handed to a crewmate.
 ---
 
 # Project management
@@ -9,12 +9,12 @@ A local sqlite database is the factory backlog. Chat is not the source of truth.
 
 ## Database path
 
-On the shared Grok Bot computer:
+On the shared DXP Bot computer:
 
-`/home/box/agent-data/grok-ship/factory.db`
+`/home/box/agent-data/dxp-bot/factory.db`
 
 Create the parent directory if needed. Same path every time. Do not invent a second database.
-Scout reports live beside it in `/home/box/agent-data/grok-ship/reports/`, one file per task id.
+Scout reports live beside it in `/home/box/agent-data/dxp-bot/reports/`, one file per task id.
 
 ## Schema
 
@@ -66,7 +66,7 @@ Triage wakes stay in chat or cron, not factory.db. Do not write a factory.db row
 
 If a project row already maps that repo to a crewmate, reuse that crewmate. Do not overwrite crewmate_id. Do not insert a second row for the same repo.
 
-If the work belongs to a repo that has no project row, insert one row: sign on from `/home/box/agent-data/grok-ship/pack/GROK_BOT_TRIAGE.md` when the captain asked for triage (factory addendum included), otherwise from the crewmate template (`/home/box/agent-data/grok-ship/pack/GROK_BOT_CREWMATE.md`). Record crewmate_id plus repos plus source_control. Do not route factory scout/ship to a second bot.
+If the work belongs to a repo that has no project row, insert one row: sign on from `/home/box/agent-data/dxp-bot/pack/DXP_BOT_TRIAGE.md` when the captain asked for triage (factory addendum included), otherwise from the crewmate template (`/home/box/agent-data/dxp-bot/pack/DXP_BOT_CREWMATE.md`). Record crewmate_id plus repos plus source_control. Do not route factory scout/ship to a second bot.
 
 Non-software work files under the reserved `default` project row (repos `[]`, no source_control); create that row on first use.
 

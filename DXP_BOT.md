@@ -1,7 +1,7 @@
-# Grok Ship
+# DXP Bot
 
-Instructions for setting up a software factory on top of Grok Bot. 
-The user just needs to tell any bot in their Grok Bot: follow this file.
+Install the DXP Bot software factory on the shared computer.
+To begin, ask a bot on that computer to follow this file.
 
 This file is an installer. Do not summarize.
 
@@ -15,17 +15,17 @@ This file is an installer. Do not summarize.
 ## The three computers
 
 - The user's computer: their own machine. Bots never execute here.
-- The shared Grok Bot computer: a persistent cloud VM that runs all agents. Everything a bot runs - checks, the database, reviews, lavish-axi - runs here.
+- The shared DXP Bot computer: a persistent cloud VM that runs all agents. Everything a bot runs - checks, the database, reviews, lavish-axi - runs here.
 - Conductor cloud agents: isolated Linux workspaces that spin up on demand for project work.
 
 ## Files in this pack
 
 Same directory as this file:
 
-- `GROK_BOT_FIRSTMATE.md` — Firstmate charter
+- `DXP_BOT_FIRSTMATE.md` — Firstmate charter
 - `CONDUCTOR.md` — cloud execution and session recovery
-- `GROK_BOT_CREWMATE.md` — per-project crewmate charter
-- `GROK_BOT_TRIAGE.md` — per-repo triage crewmate charter, signed on only when asked
+- `DXP_BOT_CREWMATE.md` — per-project crewmate charter
+- `DXP_BOT_TRIAGE.md` — per-repo triage crewmate charter, signed on only when asked
 - `TRIAGE.md` — triage judgment, not an installer
 - `skills/lavish-session/SKILL.md`
 - `skills/adversarial-review/SKILL.md`
@@ -38,11 +38,13 @@ Same directory as this file:
 
 ## Steps
 
-1. Copy this whole pack to `/home/box/agent-data/grok-ship/pack/` on the shared computer (clone or download it first if you only have this file's text). Every later reference to a pack file means that path. If a copy is already there, refresh it.
+1. Use `/home/box/agent-data/dxp-bot` as the factory directory. On upgrades, check for the previous directory, `/home/box/agent-data/grok-ship`, before creating anything. If only the previous directory exists, create the new path as a symlink to that directory. This preserves the live SQLite database, reports and saved result paths. If both paths exist and resolve to different directories, stop and ask which installation to use before writing. Refresh installed workflows and existing crewmate charters to use the renamed pack files, retaining their project settings and learning notes.
+
+   Copy this whole pack to `/home/box/agent-data/dxp-bot/pack/` on the shared computer (clone or download it first if you only have this file's text). Every later reference to a pack file means that path. If a copy is already there, refresh it.
 
 2. Look at the existing roster (agent profile folders). If a Firstmate already exists, reuse it. Do not create a second.
 
-3. Read `GROK_BOT_FIRSTMATE.md`. CreateAgent name `Firstmate` with that description. If you are already Firstmate, keep your name and update your description instead of cloning yourself.
+3. Read `DXP_BOT_FIRSTMATE.md`. CreateAgent name `Firstmate` with that description. If you are already Firstmate, keep your name and update your description instead of cloning yourself.
 
 4. Write four global workflows from the skill files. Names:
    - Lavish session
@@ -57,6 +59,6 @@ Same directory as this file:
 
 7. Verify the shared computer has an authenticated CLI for the project's forge (for example `gh auth status`), plus curl and jq for the Conductor API. At project sign-on, the crewmate verifies access to the matching cloud project as described in `CONDUCTOR.md`. Credentials are per bot. Request missing credentials on the crewmate's secure card.
 
-8. Message Firstmate with a task id (for example GS-READY). Tell it the skills are installed, the DB path, and to reply ready against that id. Empty or blocked still gets a reply. Tell Firstmate to leave a greeting message to the user.
+8. Message Firstmate with a task id (for example DXP-READY). Tell it the skills are installed, the DB path, and to reply ready against that id. Empty or blocked still gets a reply. Tell Firstmate to leave a greeting message to the user.
 
 9. Tell the user: talk only to Firstmate from here. This starter bot is leftover. They can delete it from the sidebar (right-click the row, Delete). You cannot delete it yourself.

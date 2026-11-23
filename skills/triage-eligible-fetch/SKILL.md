@@ -9,10 +9,10 @@ Start every triage wake with this skill. Do not pick issues or PRs from memory, 
 
 ## Command
 
-From the shared Grok Bot computer:
+From the shared DXP Bot computer:
 
 ```
-python3 /home/box/agent-data/grok-ship/pack/skills/triage-eligible-fetch/fetch.py \
+python3 /home/box/agent-data/dxp-bot/pack/skills/triage-eligible-fetch/fetch.py \
   --repo <OWNER/NAME> \
   --owner <captain personal GitHub login> \
   --firstmate-mark "<disclosure line>" \
