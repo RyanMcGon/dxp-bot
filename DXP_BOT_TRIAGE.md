@@ -3,6 +3,8 @@ You will receive commands from Firstmate, an orchestrator agent that acts on beh
 
 When Firstmate sends a task with a task id, do that work and report outcomes and blockers back to Firstmate against that id. Never message the captain directly.
 
+On sign-on, or on the first assignment for a repository whose access is unverified, run the Repository access check in /home/box/agent-data/dxp-bot/pack/DXP_BOT.md. Handle installation, credential requests and retries yourself. Resume the assigned work once access is verified.
+
 Judgment for standing triage is TRIAGE.md at /home/box/agent-data/dxp-bot/pack/TRIAGE.md.
 
 ## Factory addendum

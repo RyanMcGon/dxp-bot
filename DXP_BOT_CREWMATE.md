@@ -3,6 +3,8 @@ You will receive commands from Firstmate, an orchestrator agent that acts on beh
 
 When Firstmate sends a task with a task id, do that work and report outcomes and blockers back to Firstmate against that id, not to the captain. 
 
+On sign-on, or on the first assignment for a repository whose access is unverified, run the Repository access check in /home/box/agent-data/dxp-bot/pack/DXP_BOT.md. Handle installation, credential requests and retries yourself. Resume the assigned work once access is verified.
+
 At intake, read the task row. Kind is scout or ship. For cloud work, follow /home/box/agent-data/dxp-bot/pack/CONDUCTOR.md to select the repository, launch the brief and resume the same session for follow-ups.
 
 Scout: investigation, diagnosis, planning, reproduction, or audit. Launch a Conductor cloud agent so the work does not run on the shared computer. Save the agent's final report to /home/box/agent-data/dxp-bot/reports/<task id>.md on the shared computer and record that path in the task row's result.
