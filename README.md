@@ -18,19 +18,15 @@
   /></a>
 </p>
 
-> [!WARNING]
-> **This repository has been superseded** by the Firstmate/Grok Bot template:
-> https://x.ai/bot/__4FfrkUdvpdMk6-LKg5r
-
 <h3 align="center">Turn your Grok Bot into a software factory.</h3>
 
 ## What it is
 
 Grok Ship is an agent distro for Grok Bot.
-It helps turn your Grok Bot into a small software factory: scout vs ship work, per-project crewmates that drive Cursor cloud agents, adversarial review before any pull request, and a local sqlite backlog.
+It helps turn your Grok Bot into a small software factory: scout vs ship work, per-project crewmates that drive Conductor cloud agents, adversarial review before any pull request, and a local sqlite backlog.
 
 Bots never execute on your machine.
-They run on the shared Grok Bot computer; project work runs on ephemeral Cursor cloud agents.
+They run on the shared Grok Bot computer; project work runs on ephemeral Conductor cloud agents.
 
 After install, talk only to Firstmate - the one agent you chat with in the factory. If you ask, Firstmate can sign on a repo triage crewmate; that is not part of the factory install.
 
@@ -38,18 +34,20 @@ After install, talk only to Firstmate - the one agent you chat with in the facto
 
 - **A software factory on Grok Bot** - you bring work; the factory files it, delegates it, and brings back reports or pull requests.
 - **Scout vs ship** - scout is investigation, diagnosis, planning, or audit, and the deliverable is a report, never a PR. Ship is authorized change. Promoting a scout flips the same task row rather than opening a duplicate.
-- **Per-project crewmates** - each project or project area gets a persistent crewmate that drives Cursor cloud agents.
+- **Per-project crewmates** - each project or project area gets a persistent crewmate that drives Conductor cloud agents.
 - **Review before any PR** - after a ship cloud agent pushes a branch, a fresh adversarial review reads it through the project's forge CLI. No pull request until that pass is clean.
 - **Local sqlite backlog** - chat is not the source of truth. Projects and tasks live in a sqlite database on the shared computer.
 - **You merge** - factory ships never merge without your word, and never while checks are red. A wired triage crewmate may auto-merge corrective or opt-in work only when CI is green, VISION is aligned with no cannot-tell, and the change is not default-behavior, not security, not new-default, and not cannot-tell.
-- **Forge-agnostic** - detect GitHub, GitLab, Bitbucket, or Cursor Origin. Do not assume GitHub.
+- **Forge-agnostic** - review through the project's own forge CLI. Cloud execution requires the repository to be available as a Conductor project.
 
 ## Quick Start
+
+Connect the target repository in Conductor Cloud and configure its coding agent. The project crewmate will need a Conductor API key supplied through its secure credential card.
 
 Tell any Grok Bot:
 
 ```
-follow https://github.com/kunchenguid/grok-ship/blob/main/GROK_SHIP.md
+follow https://github.com/RyanMcGon/grok-ship/blob/main/GROK_SHIP.md
 ```
 
 That sets up the factory on the shared computer and hands you over to Firstmate.
@@ -59,7 +57,7 @@ Talk only to Firstmate from then on.
 > look at my project xyz, then fix the flaky login test
 
 # The factory files a ship task. A project crewmate drives a
-# Cursor cloud agent; adversarial review runs before any pull request.
+# Conductor cloud agent; adversarial review runs before any pull request.
 
   PR ready: https://github.com/you/xyz/pull/42
 
@@ -82,7 +80,7 @@ Talk only to Firstmate from then on.
  │crewmate│   │crewmate│      │crewmate│   one per project
  └───┬────┘   └───┬────┘      └───┬────┘
      ▼            ▼               ▼
-  Cursor cloud agents
+  Conductor cloud agents
      │
      ├─ ship: branch ► adversarial review ► PR ► you merge
      │
@@ -90,7 +88,7 @@ Talk only to Firstmate from then on.
 ```
 
 Work is filed as scout or ship in the local sqlite backlog, then handed to the crewmate whose project charter fits.
-Software goes through a project crewmate and a Cursor cloud agent.
+Software goes through a project crewmate and a Conductor cloud agent.
 Scout reports land on the shared computer.
 Ship work is reviewed on the pushed branch before a pull request is opened.
 
